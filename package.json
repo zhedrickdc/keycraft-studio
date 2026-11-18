@@ -1,0 +1,28 @@
+{
+  "name": "keycraft-studio",
+  "version": "1.0.0",
+  "description": "KeyCraft Studio — offline typing practice and touch academy",
+  "main": "main.js",
+  "author": "KeyCraft Studio",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --publish never"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.keycraft.studio",
+    "productName": "KeyCraft Studio",
+    "files": ["index.html", "main.js", "icons/**/*", "package.json"],
+    "win": { "target": ["nsis", "portable"], "icon": "icons/icon.ico" },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "KeyCraft-Studio-Setup-${version}.${ext}"
+    },
+    "portable": { "artifactName": "KeyCraft-Studio-Portable-${version}.${ext}" }
+  }
+}
